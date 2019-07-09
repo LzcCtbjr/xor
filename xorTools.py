@@ -23,12 +23,19 @@ def xor(x,y):
         elif str(x)[xlen - i] != str(y)[ylen - i]:
             output = output + 1 * (10**(i-1))
     return output
- 
+
+def decXor(x,y):
+    bin1 = str(toBinary(x))
+    bin2 = str(toBinary(y))
+    binxor = xor(bin1,bin2)
+    return toDecimal(binxor)
+
+'''
 while True:
     in1 = int(input("Value one: "))
     bin1 = str(toBinary(in1))
     print("The binary is: " + bin1)
-    
+
     in2 = int(input("Value two: "))
     bin2 = str(toBinary(in2))
     print("The binary is: " + bin2)
@@ -36,3 +43,4 @@ while True:
     binxor = xor(bin1,bin2)
     print("The XOR in binary is: " + str(binxor))
     print("The bitwise XOR in decimal is: " + str(toDecimal(binxor)))
+'''
