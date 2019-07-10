@@ -1,14 +1,41 @@
 #!/bin/python3
 
-def toBinary(x):
-    return int(bin(x)[2:])
+#####   toBin METHODS   #####
+#kinda self explanatory; just uses the builtin
+#int() and bin() methods to convert to binary.
+#the [2:] is to get rid of the '0x' that would
+#be present because of how int() and bin() work.
 
-def toDecimal(x):
+def DectoBin(x):
+    return bin(x)[2:]
+
+def HextoBin(x):
+    return bin(int(x,16))[2:]
+
+#####   Binto METHODS   #####
+#Uses builtin methods to undo the work done by 
+#the toBin methods.
+
+def BintoDec(x):
+    #I really don't know why the commented return
+    #statement doesn't work as intended, so I'm just
+    #using a simple algorithm to convert to decimal.
+    #return int(x,2)[2:]
     output = 0
     for i in range (1,len(str(x)) + 1):
         if int(str(x)[len(str(x)) - i]) == 1:
             output = output + (2**(i-1))
     return output
+
+def BintoHex(x):
+    return hex(int(x,2))[2:]
+
+#####   BITWISE XOR METHOD  #####
+#Finds the bitwise XOR by moving through the places and
+#putting a '1' in the output in that place if both bits
+#are different. If the iterating variable is outside the 
+#bounds of one of the numbers, it adds a '1' if the bit 
+#of the other string in that place is also a '1'
 
 def xor(x,y):
     output = 0
@@ -24,23 +51,22 @@ def xor(x,y):
             output = output + 1 * (10**(i-1))
     return output
 
+#####   "DO EVERYTHING FOR YOU" METHODS #####
+#The general scheme for these methods is almost identical,
+#with only the methods used to change bases being different
+#between them. They:
+#   1. Convert their inputs to binary
+#   2. Find the bitwise XOR of the inputs
+#   3. Convert the XOR back to the original base
+
 def decXor(x,y):
-    bin1 = str(toBinary(x))
-    bin2 = str(toBinary(y))
+    bin1 = str(DectoBin(x))
+    bin2 = str(DectoBin(y))
     binxor = xor(bin1,bin2)
-    return toDecimal(binxor)
+    return BintoDec(binxor)
 
-'''
-while True:
-    in1 = int(input("Value one: "))
-    bin1 = str(toBinary(in1))
-    print("The binary is: " + bin1)
-
-    in2 = int(input("Value two: "))
-    bin2 = str(toBinary(in2))
-    print("The binary is: " + bin2)
-
+def hexXor(x,y):
+    bin1 = str(HextoBin(x))
+    bin2 = str(DectoBin(y))
     binxor = xor(bin1,bin2)
-    print("The XOR in binary is: " + str(binxor))
-    print("The bitwise XOR in decimal is: " + str(toDecimal(binxor)))
-'''
+    return BintoHex(binxor)
