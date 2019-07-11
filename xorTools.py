@@ -1,5 +1,13 @@
 #!/bin/python3
 
+#list of methods:
+#DectoBin(dec)
+#HextoBin(hex)
+#BintoDec(bin)
+#xor(x,y)
+#decXor(x,y)
+#hexXor(x,y)
+
 #####   toBin METHODS   #####
 #kinda self explanatory; just uses the builtin
 #int() and bin() methods to convert to binary.

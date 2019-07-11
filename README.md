@@ -10,7 +10,9 @@ What is each file?
 
 xorTools.py provides all the mathematical backend that we'll be needing (finding the XOR given two decimal or binary numbers)
 
-xorAnalyze.py generates a XOR table with user-specified dimensions
+xorAnalyze.py generates a XOR table with user-specified dimensions, and then outputs this to the console and to 'output.txt'
+
+xorPeek.py is an interactive tool to change each input and see what the resulting XOR is
 
 TODO:
 -----------------------
