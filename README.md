@@ -12,11 +12,9 @@ xorTools.py provides all the mathematical backend that we'll be needing (finding
 
 xorAnalyze.py generates a XOR table with user-specified dimensions, and then outputs this to the console and to 'output.txt'
 
-xorPeek.py is an interactive tool to change each input and see what the resulting XOR is
+xorPeek.py is an interactive tool to change each input and see what the resulting XOR is in both binary and decimal 
 
 TODO:
 -----------------------
-1. Get a better way to store the data from xoranalysis.py
-2. Create a tool to look at the XOR of two numbers visually by looking at the binary and being able to change each value. 
-3. keep thinking about whether there's a better way to structure the programs
-4. find a better way to visualize the data, i.e. 3d graph with z = xor(x,y)
+1. keep thinking about whether there's a better way to structure the programs
+2. find a better way to visualize the data, i.e. 3d graph with z = xor(x,y)
