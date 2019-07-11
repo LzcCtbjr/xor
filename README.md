@@ -2,7 +2,9 @@ A tool to understand XOR better
 ===================
 Why?
 ----------------
+
 I was reading about the bitwise XOR and I found myself wondering what the effects of it would be on numbers in other bases, so I made this tool to help look at how numbers act with it.
+
 What is each file?
 ----------------
 
