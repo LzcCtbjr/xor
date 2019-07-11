@@ -5,8 +5,11 @@ Why?
 I was reading about the bitwise XOR and I found myself wondering what the effects of it would be on numbers in other bases, so I made this tool to help look at how numbers act with it.
 What is each file?
 ----------------
+
 xorTools.py provides all the mathematical backend that we'll be needing (finding the XOR given two decimal or binary numbers)
+
 xorAnalyze.py generates a XOR table with user-specified dimensions
+
 TODO:
 -----------------------
 1. Get a better way to store the data from xoranalysis.py
