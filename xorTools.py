@@ -88,7 +88,13 @@ def band(x,y):
     ylen = len(str(y))
 
     for i in range (1, max([xlen,ylen]) + 1):
-        if int(str(x)[xlen - i]) == int(str(y)[ylen - i]):
+        if i > xlen:
+            #do nothing
+            output = output
+        elif i > ylen: 
+            #do nothing
+            output = output
+        elif int(str(x)[xlen - i]) == int(str(y)[ylen - i]):
             output = output + (10**(i-1))
 
     return output
