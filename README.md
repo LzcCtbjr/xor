@@ -3,7 +3,7 @@ A tool to understand XOR better
 Why?
 ----------------
 
-I was reading about the bitwise XOR and I found myself wondering what the effects of it would be on numbers in other bases, so I made this tool to help look at how numbers act with it.
+Originally, I found myself wondering about the XOR and what its effects on decimal numbers would be when applied bitwise to their binary values. I later shifted from just the XOR to other logical operators when I remembered that the XOR was just a composition of more basic operators. The goal of this is to be able to understand more fully what the bitwise logical operators do by looking at them through bases other than binary.  
 
 What is each file?
 ----------------
@@ -16,5 +16,6 @@ xorPeek.py is an interactive tool to change each input and see what the resultin
 
 TODO:
 -----------------------
-1. keep thinking about whether there's a better way to structure the programs
+1. expand the tools to also allow for using the other bitwise logic operations on decimal numbers
 2. find a better way to visualize the data, i.e. 3d graph with z = xor(x,y)
+3. consider removing the methods to deal with hex numbers (is understanding decimal enough? is understanding decimal sufficient to understand the hex without additional research?)

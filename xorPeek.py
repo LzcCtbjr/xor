@@ -28,6 +28,13 @@ def calc():
     out2 = BintoDec(out)
     return [binX, binY, out, out2]
 
+#function to get input from the user
+def getValue():
+    cont = True
+    while cont:
+        return 1
+        
+
 #method for creating all the labels
 def generate(x, y):
     vars = calc()
@@ -40,8 +47,8 @@ def generate(x, y):
     yLabel = pyglet.text.Label(str(y),
                                 font_name = fontName,
                                 font_size = fontSize,
-                                x=window.width//2, y=9*window.height//10,
-                                anchor_x='center', anchor_y='center')
+                                x=9*window.width//10, y=9*window.height//10,
+                                anchor_x='right', anchor_y='center')
     binXLabel = pyglet.text.Label(str(vars[0]),
                                 font_name = monoName,
                                 font_size = fontSize*2,
@@ -50,19 +57,25 @@ def generate(x, y):
     binYLabel = pyglet.text.Label(str(vars[1]),
                                 font_name = monoName,
                                 font_size = fontSize*2,
-                                x=window.width//2, y=(99*window.height//100) - fontSize * 4,
-                                anchor_x='left', anchor_y='center')
+                                x=9*window.width//10, y=(99*window.height//100) - fontSize * 4,
+                                anchor_x='right', anchor_y='center')
     xorLabel = pyglet.text.Label(str(vars[2]),
                                 font_name = monoName,
                                 font_size = fontSize*2,
-                                x=window.width//2, y=window.height//2 - fontSize * 1.5,
-                                anchor_x='left', anchor_y='center')
+                                x=9*window.width//10, y=window.height//2 - fontSize * 1.5,
+                                anchor_x='right', anchor_y='center')
     decXorLabel = pyglet.text.Label(str(vars[3]),
                                 font_name = fontName,
                                 font_size = fontSize,
-                                x=window.width//2, y=window.height//2,
-                                anchor_x='left', anchor_y='center')
-    return [xLabel, yLabel, binXLabel, binYLabel, xorLabel, decXorLabel]
+                                x=9*window.width//10, y=window.height//2,
+                                anchor_x='right', anchor_y='center')
+    formula = "xor(" + str(x) + "," + str(y) + ") = " + str(vars[3])
+    formulaLabel = pyglet.text.Label(formula,
+                                font_name = fontName, 
+                                font_size = fontSize,
+                                x=window.width//100, y=window.height//100,
+                                anchor_x='left', anchor_y='bottom')
+    return [xLabel, yLabel, binXLabel, binYLabel, xorLabel, decXorLabel, formulaLabel]
 
 #####   RENDERING   #####
 
@@ -96,6 +109,8 @@ def on_key_press(symbol, modifiers):
         x = x - 10
     elif symbol == key.O:
         x = x + 10
+    elif symbol == key.X:
+        x = getValue()
     if x < 0:
         x = 0
     if y < 0:

@@ -9,7 +9,7 @@ arr = [[0 for y in range(w)] for x in range(h)]
 
 for i in range(0, h):
     for j in range(0,w):
-        arr[i][j] = decXor(i,j)
+        arr[i][j] = BintoDec(xor(DectoBin(i),DectoBin(j)))
 
 with open('output.txt', 'w') as f:
     print(tabulate(arr))

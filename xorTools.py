@@ -38,14 +38,14 @@ def BintoDec(x):
 def BintoHex(x):
     return hex(int(x,2))[2:]
 
-#####   BITWISE XOR METHOD  #####
-#Finds the bitwise XOR by moving through the places and
-#putting a '1' in the output in that place if both bits
-#are different. If the iterating variable is outside the 
-#bounds of one of the numbers, it adds a '1' if the bit 
-#of the other string in that place is also a '1'
+#####   BITWISE LOGIG METHODS   #####
 
 def xor(x,y):
+    #Finds the bitwise XOR by moving through the places and
+    #putting a '1' in the output in that place if both bits
+    #are different. If the iterating variable is outside the 
+    #bounds of one of the numbers, it adds a '1' if the bit 
+    #of the other string in that place is also a '1'
     output = 0
     xlen = len(str(x))
     ylen = len(str(y))
@@ -59,22 +59,44 @@ def xor(x,y):
             output = output + 1 * (10**(i-1))
     return output
 
-#####   "DO EVERYTHING FOR YOU" METHODS #####
-#The general scheme for these methods is almost identical,
-#with only the methods used to change bases being different
-#between them. They:
-#   1. Convert their inputs to binary
-#   2. Find the bitwise XOR of the inputs
-#   3. Convert the XOR back to the original base
+def bor(x,y):
+    #Finds the bitwise OR by moving through the places and
+    #putting a '1' if the bit in either string at that position
+    #is also a '1'
+    output = 0
+    xlen = len(str(x))
+    ylen = len(str(y))
 
-def decXor(x,y):
-    bin1 = str(DectoBin(x))
-    bin2 = str(DectoBin(y))
-    binxor = xor(bin1,bin2)
-    return BintoDec(binxor)
+    for i in range (1, max([xlen,ylen]) + 1):
+        if i > xlen:
+            output = output + int(str(y)[ylen - i]) * (10**(i-1))
+        elif i > ylen:
+            output = output + int(str(x)[xlen - i]) * (10**(i-1))
+        elif int(str(x)[xlen - i]) ==  0 and int(str(y)[ylen - i]) == 0:
+            output = output
+        else:
+            output = output + (10**(i-1))
 
-def hexXor(x,y):
-    bin1 = str(HextoBin(x))
-    bin2 = str(DectoBin(y))
-    binxor = xor(bin1,bin2)
-    return BintoHex(binxor)
+    return output
+       
+def band(x,y):
+    #Finds the bitwise AND by moving through the places and
+    #putting a '1' if the bit in both strings at that position
+    #is also a '1'
+    output = 0
+    xlen = len(str(x))
+    ylen = len(str(y))
+
+    for i in range (1, max([xlen,ylen]) + 1):
+        if int(str(x)[xlen - i]) == int(str(y)[ylen - i]):
+            output = output + (10**(i-1))
+
+    return output
+
+def bnot(x):
+    #Finds the bitwise NOT by moving through the places and
+    #flipping the bit found at each place
+    output = int(x)
+    for i in range (1, len(str(x)) + 1):
+        output = output + ((10**(i-1)) * (1 - 2*int(str(x)[len(str(x)) - i])))
+    return output
