@@ -17,9 +17,6 @@
 def DectoBin(x):
     return bin(x)[2:]
 
-def HextoBin(x):
-    return bin(int(x,16))[2:]
-
 #####   Binto METHODS   #####
 #Uses builtin methods to undo the work done by 
 #the toBin methods.
@@ -35,9 +32,6 @@ def BintoDec(x):
             output = output + (2**(i-1))
     return output
 
-def BintoHex(x):
-    return hex(int(x,2))[2:]
-
 #####   BITWISE LOGIG METHODS   #####
 
 def xor(x,y):
@@ -46,6 +40,11 @@ def xor(x,y):
     #are different. If the iterating variable is outside the 
     #bounds of one of the numbers, it adds a '1' if the bit 
     #of the other string in that place is also a '1'
+    #note that this could also be expressed as a result of
+    #the more basic logic operators, but I don't use that
+    #implementation here because of the information loss when
+    #taking the AND of two numbers with one longer than the other
+    #along with a similar loss with preceeding zeros with NOT
     output = 0
     xlen = len(str(x))
     ylen = len(str(y))
@@ -102,7 +101,16 @@ def band(x,y):
 def bnot(x):
     #Finds the bitwise NOT by moving through the places and
     #flipping the bit found at each place
+    #disregards word length because of the following example:
+    # NOT(10) should return 01, which should be equivalent to 1.
+    # However, NOT(1) will give 0, which is not 10.
+    # Therefore, NOT(NOT(10)) != 10, which is undesireable
+    # Thus, I have decided to make this information loss a 
+    # feature of NOT, since there is no preexisting convention.
     output = int(x)
-    for i in range (1, len(str(x)) + 1):
-        output = output + ((10**(i-1)) * (1 - 2*int(str(x)[len(str(x)) - i])))
+    if output == 0:
+        output = None
+    else:
+        for i in range (1, len(str(x)) + 1):
+            output = output + ((10**(i-1)) * (1 - 2*int(str(x)[len(str(x)) - i])))
     return output
