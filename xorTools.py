@@ -2,11 +2,10 @@
 
 #list of methods:
 #DectoBin(dec)
-#HextoBin(hex)
 #BintoDec(bin)
 #xor(x,y)
-#decXor(x,y)
-#hexXor(x,y)
+#bor(x,y)
+#band(x,y)
 
 #####   toBin METHODS   #####
 #kinda self explanatory; just uses the builtin
@@ -77,7 +76,7 @@ def bor(x,y):
             output = output + (10**(i-1))
 
     return output
-       
+
 def band(x,y):
     #Finds the bitwise AND by moving through the places and
     #putting a '1' if the bit in both strings at that position
@@ -96,21 +95,4 @@ def band(x,y):
         elif int(str(x)[xlen - i]) == int(str(y)[ylen - i]):
             output = output + (10**(i-1))
 
-    return output
-
-def bnot(x):
-    #Finds the bitwise NOT by moving through the places and
-    #flipping the bit found at each place
-    #disregards word length because of the following example:
-    # NOT(10) should return 01, which should be equivalent to 1.
-    # However, NOT(1) will give 0, which is not 10.
-    # Therefore, NOT(NOT(10)) != 10, which is undesireable
-    # Thus, I have decided to make this information loss a 
-    # feature of NOT, since there is no preexisting convention.
-    output = int(x)
-    if output == 0:
-        output = None
-    else:
-        for i in range (1, len(str(x)) + 1):
-            output = output + ((10**(i-1)) * (1 - 2*int(str(x)[len(str(x)) - i])))
     return output
