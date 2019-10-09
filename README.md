@@ -15,4 +15,4 @@ xorAnalyze.py generates a XOR table with user-specified dimensions, and then out
 -----------------
 TODO:
 -----------------------
-1. find a better way to visualize the data, i.e. 3d graph with z = xor(x,y)
+1. add functionality to work with decimal points when converting from decimal to binary to observe better how "fractal-y" the xor pattern looks like in Q as opposed to N
